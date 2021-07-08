@@ -3,12 +3,13 @@
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 124:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "$": () => (/* binding */ $)
 /* harmony export */ });
 /* unused harmony export JQ */
+/* module decorator */ module = __webpack_require__.hmd(module);
 /**
  * JQ class is the most main class for jquery clone plugin, containing all logic: methods, props, ...
  */
@@ -449,6 +450,7 @@ function $(selector) {
     //let i = ;
     return new JQ(selector);
 }
+module.exports = JQ;
 //let i: JQ = new JQ("input");
 
 
@@ -468,13 +470,16 @@ function $(selector) {
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -490,6 +495,21 @@ function $(selector) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/harmony module decorator */
+/******/ 	(() => {
+/******/ 		__webpack_require__.hmd = (module) => {
+/******/ 			module = Object.create(module);
+/******/ 			if (!module.children) module.children = [];
+/******/ 			Object.defineProperty(module, 'exports', {
+/******/ 				enumerable: true,
+/******/ 				set: () => {
+/******/ 					throw new Error('ES Modules may not assign module.exports or exports.*, Use ESM export syntax, instead: ' + module.id);
+/******/ 				}
+/******/ 			});
+/******/ 			return module;
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -518,7 +538,7 @@ window.$ = _jquery__WEBPACK_IMPORTED_MODULE_0__.$;
 //$(".test");
 //console.log($("p").text());
 //$("input").val("new-value");
-(0,_jquery__WEBPACK_IMPORTED_MODULE_0__.$)(".outer").append("afterbegin", (document.createElement("a").textContent = "sdf"));
+//$(".outer").append("afterbegin", (document.createElement("a").textContent = "sdf"));
 
 })();
 
