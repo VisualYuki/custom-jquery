@@ -3,7 +3,8 @@
 		"target": "es6",
 		"module": "ES2020",
 		"outDir": "out",
-		"sourceMap": true
+		"sourceMap": true,
+		"moduleResolution": "Node"
 
 		//"strictPropertyInitialization": true
 		//"strictNullChecks": true

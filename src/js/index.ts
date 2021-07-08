@@ -25,4 +25,4 @@ window.$ = $;
 //$(".test");
 //console.log($("p").text());
 //$("input").val("new-value");
-$(".outer").append("afterbegin", (document.createElement("a").textContent = "sdf"));
+//$(".outer").append("afterbegin", (document.createElement("a").textContent = "sdf"));

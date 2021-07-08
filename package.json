@@ -41,7 +41,7 @@
 		"webpack-cli": "^4.6.0",
 		"webpack-dev-server": "^4.0.0-beta.0"
 	},
-	"name": "ts calculator",
+	"name": "custom-jquery",
 	"description": "typescript calculator (MVC)",
 	"version": "1.0.0",
 	"private": true,
@@ -51,7 +51,8 @@
 		"build": "cross-env NODE_ENV=production webpack",
 		"eslint": "eslint ./src/js",
 		"eslint:fix": "eslint ./src/js --fix",
-		"test": "jest"
+		"test": "jest",
+		"doc": "typedoc src/js/jquery.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -75,6 +76,7 @@
 		"@typescript-eslint/parser": "^4.26.1",
 		"jquery": "^3.6.0",
 		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
+		"react-dom": "^17.0.2",
+		"typedoc": "^0.21.2"
 	}
 }

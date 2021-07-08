@@ -199,17 +199,17 @@ export class JQ {
 		}
 	}
 
-	operateHideOrShow(cssValue: string) {
+	private operateHideOrShow(cssValue: string) {
 		this.helpForEach((el: HTMLElement, _index: Number) => {
 			el.style.display = cssValue;
 		});
 	}
 
-	removePx(value: string): number {
+	private removePx(value: string): number {
 		return parseFloat(value);
 	}
 
-	setPx(value: number): string {
+	private setPx(value: number): string {
 		return value + "px";
 	}
 
@@ -471,7 +471,7 @@ export class JQ {
 	}
 
 	//! добавить append
-	//!  ajax
+	//! ajax
 
 	//! добавить click()
 	//prop(prop: string): this {
@@ -497,5 +497,7 @@ export function $(selector: string | HTMLElement) {
 	//let i = ;
 	return new JQ(selector);
 }
+
+module.exports = JQ;
 
 //let i: JQ = new JQ("input");

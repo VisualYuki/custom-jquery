@@ -9,14 +9,24 @@ html(lang="en")
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 		<link rel="shortcut icon" href="/favicons/favicon.ico">
 	body
-		p.text(data-id="12" style="display: none") first text
-		p.text(data-id="12") second text
-		//p.text(data-id="14") webpack config 2
-		.outer
-			.inner
-			.inner
-			.inner
-		input(type="text" value="value-text")
-		input(type="checkbox")
+		p.p-1 Lorem ipsum dolor sit amet.
+		p.p-class.p-2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, hic?
+		p.p-class.p-3
+		.div-1
+			.div-2
+				| div-2
+				.div-3 div-3
+				.div-3 div-3
+				.div-3 div-3
+			| div-1
+			.div-2
+				| div-2
+				.div-3 div-3
+				.div-3 div-3
+				.div-3 div-3
+		input.input-1.input-text(type="text" value="value-text-1")
+		input.input-2.input-text(type="text" placeholder="enter the text")
+		input.input-3.input-checkbox(type="checkbox")
+		input.input-4.input-checkbox(type="checkbox" checked)
 
 

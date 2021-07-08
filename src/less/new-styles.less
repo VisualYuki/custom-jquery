@@ -8,3 +8,45 @@
 		border-bottom: 1px solid blue;
 	}
 }
+
+p {
+	padding: 5px;
+	border-bottom: 1px solid gainsboro;
+}
+
+.div-1 {
+	height: 150px;
+	.flex(flex-start,center);
+	background: yellow;
+	padding: 10px;
+}
+
+.div-2 {
+	.flex(flex-start,center);
+	height: 100%;
+	margin: 20px;
+	padding: 20px;
+	background: blue;
+	flex-grow: 1;
+}
+
+.div-3 {
+	.flex(center,center);
+
+	height: 100%;
+	margin: 0 10px;
+	background: green;
+	flex-shrink: 0;
+	flex-grow: 1;
+}
+
+input {
+	margin: 5px;
+	padding: 5px;
+	height: 40px;
+	border: 1px solid gray;
+
+	&::placeholder {
+		color: gray;
+	}
+}
