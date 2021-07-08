@@ -498,6 +498,4 @@ export function $(selector: string | HTMLElement) {
 	return new JQ(selector);
 }
 
-module.exports = JQ;
-
 //let i: JQ = new JQ("input");

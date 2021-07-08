@@ -1646,50 +1646,6 @@ body.compensate-for-scrollbar {
     box-shadow: 0 0 0 20px rgba(242, 242, 242, 0);
   }
 }
-.custon-counter {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 93px;
-  height: 25px;
-  overflow: hidden;
-  border: 1px solid #7c7c7c;
-  border-radius: 2px;
-}
-.custon-counter__arrow {
-  user-select: none;
-}
-.custon-counter__left-arrow,
-.custon-counter__right-arrow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 100%;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: center;
-  background: #7c7c7c;
-  cursor: pointer;
-}
-.custon-counter__left-arrow {
-  left: 0;
-}
-.custon-counter__right-arrow {
-  right: 0;
-}
-.custon-counter__input {
-  width: 31px;
-  height: 100%;
-  color: #000000;
-  font-size: 12px;
-  line-height: 25px;
-  text-align: center;
-}
 .custom-radio {
   position: relative;
   display: flex;
@@ -1750,6 +1706,86 @@ body.compensate-for-scrollbar {
     box-shadow: 0 0 0 10px rgba(242, 242, 242, 0);
   }
 }
+.custon-counter {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 93px;
+  height: 25px;
+  overflow: hidden;
+  border: 1px solid #7c7c7c;
+  border-radius: 2px;
+}
+.custon-counter__arrow {
+  user-select: none;
+}
+.custon-counter__left-arrow,
+.custon-counter__right-arrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 100%;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  background: #7c7c7c;
+  cursor: pointer;
+}
+.custon-counter__left-arrow {
+  left: 0;
+}
+.custon-counter__right-arrow {
+  right: 0;
+}
+.custon-counter__input {
+  width: 31px;
+  height: 100%;
+  color: #000000;
+  font-size: 12px;
+  line-height: 25px;
+  text-align: center;
+}
+.custom-readmore.active .custom-readmore__content {
+  max-height: max-content;
+}
+.custom-readmore.active .custom-readmore__btn .opened-text {
+  display: none;
+}
+.custom-readmore.active .custom-readmore__btn .closed-text {
+  display: flex;
+}
+.custom-readmore__btn {
+  cursor: pointer;
+}
+.custom-readmore__btn .closed-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  display: none;
+}
+.custom-readmore__btn .icon {
+  margin-top: 4px;
+}
+.custom-readmore__content {
+  margin-bottom: 5px;
+  transition-duration: 1s;
+}
+.custom-readmore__content:before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(0deg, rgba(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+  content: "";
+}
 .custom-raiting {
   margin-top: -4px;
 }
@@ -1800,42 +1836,6 @@ body.compensate-for-scrollbar {
 .custom-raiting__item.checked:before,
 .custom-raiting__item.checked ~ .custom-raiting__item:before {
   color: #ffd401;
-}
-.custom-readmore.active .custom-readmore__content {
-  max-height: max-content;
-}
-.custom-readmore.active .custom-readmore__btn .opened-text {
-  display: none;
-}
-.custom-readmore.active .custom-readmore__btn .closed-text {
-  display: flex;
-}
-.custom-readmore__btn {
-  cursor: pointer;
-}
-.custom-readmore__btn .closed-text {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  display: none;
-}
-.custom-readmore__btn .icon {
-  margin-top: 4px;
-}
-.custom-readmore__content {
-  margin-bottom: 5px;
-  transition-duration: 1s;
-}
-.custom-readmore__content:before {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 5;
-  width: 100%;
-  height: 20px;
-  background: linear-gradient(0deg, rgba(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
-  content: "";
 }
 .hover-dropdown {
   transition: 0.2s;
@@ -1893,6 +1893,12 @@ body.compensate-for-scrollbar {
 }
 .dropdown-select__item-link:hover {
   background: #f1f1f1;
+}
+.js-toggle-trigger.active ~ .js-toggle-target {
+  display: block;
+}
+.js-toggle-target {
+  display: none;
 }
 .toggle-checkbox_chosen .toggle-checkbox__toggle:before {
   background: gray !important;
@@ -1982,12 +1988,6 @@ body.compensate-for-scrollbar {
 }
 .toggle-block__checkbox {
   margin: 0 12px;
-}
-.js-toggle-trigger.active ~ .js-toggle-target {
-  display: block;
-}
-.js-toggle-target {
-  display: none;
 }
 .triangle-rotate_hover:hover .triangle-rotate__triangle {
   transform: rotate(180deg);
@@ -2261,6 +2261,9 @@ body.compensate-for-scrollbar {
 .admin-text ul,
 .admin-text ol {
   padding-left: 40px;
+}
+body {
+  padding: 30px;
 }
 .text {
   width: max-content;
