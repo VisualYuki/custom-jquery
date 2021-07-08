@@ -1,0 +1,139 @@
+.toggle-checkbox {
+	@primary: blue;
+	@primary-light: green;
+	@gray: #ebebeb;
+
+	&_chosen {
+		.toggle-checkbox__toggle:before {
+			background: gray !important;
+		}
+
+		.toggle-checkbox__btn {
+			background: black !important;
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	&__toggle {
+		position: relative;
+
+		display: block;
+		width: 40px;
+		height: 20px;
+
+		transform: translate3d(0, 0, 0);
+
+		-webkit-tap-highlight-color: transparent;
+		cursor: pointer;
+
+		&:before {
+			position: relative;
+			top: 3px;
+			left: 3px;
+
+			display: block;
+			width: 34px;
+			height: 14px;
+
+			background: gray;
+			border-radius: 8px;
+
+			transition: background 0.2s ease;
+
+			content: "";
+		}
+	}
+
+	&__btn {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		display: block;
+		width: 20px;
+		height: 20px;
+
+		background: gray;
+		border-radius: 10px;
+		box-shadow: 0 3px 8px rgba(gray, 0.5);
+
+		transition: all 0.2s ease;
+
+		&:before {
+			position: absolute;
+
+			display: block;
+			width: 56px;
+			height: 56px;
+			margin: -18px;
+
+			background: rgba(@primary, 0.5);
+			border-radius: 50%;
+			transform: scale(0);
+			opacity: 1;
+
+			content: "";
+			pointer-events: none;
+		}
+	}
+
+	&__input {
+		display: none;
+	}
+
+	&__input:checked ~ &__toggle {
+		&:before {
+			background: @primary-light;
+		}
+
+		span {
+			background: @primary;
+			box-shadow: 0 3px 8px rgba(@primary, 0.2);
+			transform: translateX(20px);
+
+			transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25),
+				background 0.15s ease;
+
+			&:before {
+				transform: scale(1);
+				opacity: 0;
+
+				transition: all 0.4s ease;
+			}
+		}
+	}
+}
+
+.toggle-block {
+	.flex(flex-start,center);
+	font-size: 14px;
+	line-height: 16px;
+
+	&:not(.active) &__off-text {
+		font-weight: bold;
+	}
+
+	&.active &__on-text {
+		font-weight: bold;
+	}
+
+	&__off-text {
+	}
+
+	&__checkbox {
+		margin: 0 12px;
+	}
+
+	&__on-text {
+	}
+}
+
+//<div class="toggle-checkbox">
+//   <input type="checkbox" class="toggle-checkbox__input" id="cbx"/>
+//   <label for="cbx" class="toggle-checkbox__toggle">
+//      <span class="toggle-checkbox__btn"></span>
+//   </label>
+//</div>

@@ -1,0 +1,273 @@
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 0 10px;
+
+	//overflow: hidden;
+
+	.desk_top({
+		max-width: 1140px;
+	});
+
+	.desk_bottom({
+		max-width: 800px;
+	});
+
+	.tablet({
+		max-width: 720px;
+	});
+
+	.mobile({
+		width: 100%;
+		padding: 0 10px;
+	});
+
+	&_full-width {
+		max-width: 1980px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+}
+
+* {
+	position: relative;
+}
+
+.page-content {
+	.flex(flex-start,stretch,column);
+	width: 100vw;
+	min-height: 100vh;
+
+	overflow-x: hidden;
+}
+
+.main-content {
+	flex-grow: 1;
+	overflow: hidden;
+}
+
+button {
+	display: block;
+}
+
+picture {
+	height: 100%;
+
+	img {
+		width: 100%;
+		height: 100%;
+
+		object-fit: cover;
+
+		&:not(.lazyloaded) {
+			width: 50px;
+			height: 50px;
+		}
+	}
+}
+
+body {
+	.flex(center,center);
+	height: 100vh;
+
+	font-size: 16px;
+	font-family: Roboto;
+	letter-spacing: 0.03em;
+
+	background: white;
+
+	// Заранее загрузить иконку, чтобы не было задержки при наведении на крестик в модальном окне.
+	&:before {
+		.z-index--2;
+		width: 1px;
+		height: 1px;
+
+		//background: url("/dist/svg/red-close.svg");
+
+		content: "";
+	}
+
+	* {
+		//задать цвет скроллу монитора (только на хром подобных браузерах)
+		//&::-webkit-scrollbar {
+		//   height: 8px;
+		//}
+
+		//&::-webkit-scrollbar-track {
+		//   background: rgba(192, 192, 192, 0);
+		//}
+
+		//&::-webkit-scrollbar-thumb {
+		//   background: rgba(56, 56, 56, 0.534);
+		//}
+	}
+}
+
+a {
+	display: block;
+	.tran-fast;
+	white-space: nowrap;
+}
+
+span {
+	white-space: nowrap;
+}
+
+p {
+	line-height: 115%;
+	white-space: normal;
+
+	.default-link {
+		display: inline;
+
+		white-space: normal;
+	}
+}
+
+p,
+a,
+span {
+	.tran-fast;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+// задать троеточие в конце строки, если не хватает места
+.one-line-dots {
+	overflow: hidden;
+
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.two-line-dots {
+	display: -webkit-box;
+
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.three-line-dots {
+	display: -webkit-box;
+
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+// менять отображение содержимого страницы в зависимости от авторизованности пользователя на странице
+body.reg-user {
+	.reg-block {
+		display: block;
+	}
+
+	.unreg-block {
+		display: none;
+	}
+}
+
+body.unreg-user {
+	.reg-block {
+		display: none;
+	}
+
+	.unreg-block {
+		display: block;
+	}
+}
+
+// Не срабатывает событие закрытия окна, но этот вариант работает.
+.fancybox-close-small {
+	//background: url("/dist/svg/close.svg") no-repeat center !important;
+	background-size: 24px 24px !important;
+
+	&:hover {
+		//background: url("/dist/svg/red-close.svg") no-repeat center !important;
+	}
+}
+
+//.slick-list  {
+//   margin: 0 -10px;
+//}
+
+//.slick-slide {
+//   margin: 0 10px;
+//}
+
+// показать справа часть слайда на мобилках
+//.slick-list {
+//   ._900({
+//      padding-right: 100px !important;
+//   });
+
+//   ._375({
+//      padding-right: 50px !important;
+//   });
+
+//   ._375({
+//      padding-right: 35px !important;
+//   });
+//}
+
+//если нужно, чтобы все слайды были одинаковые по высоте
+.slick-track {
+	//display: flex;
+}
+
+.slick-slide {
+	//height: auto;
+	//flex: 0 0 auto;
+}
+
+.slick-slider {
+	cursor: grab;
+}
+
+// задать высоту для загрузки файла.
+.uppy-Root {
+	height: 200px !important;
+	.site-mobile({
+		height: 150px;
+	});
+}
+
+.before-slider {
+	&_show-first {
+		&:not(.slick-slider) .before-slider__slider-item:not(:first-child) {
+			display: none;
+		}
+
+		&.slick-slider .before-slider__slider-item {
+			display: block;
+		}
+	}
+
+	&_show-cut {
+		&:not(.slick-slider) {
+			.flex(flex-start,stretch);
+
+			overflow: hidden;
+
+			.before-slider__slider-item {
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	&_show-count {
+		.flex(space-between,stretch);
+	}
+}
+
+.clearfix {
+	flex-basis: 100%;
+	height: 0;
+}
+
+//<link href="https://releases.transloadit.com/uppy/v1.24.0/uppy.min.css" rel="stylesheet">
+//<script src="https://releases.transloadit.com/uppy/v1.24.0/uppy.min.js"></script>
+//<script src="https://releases.transloadit.com/uppy/locales/v1.17.0/ru_RU.min.js"></script>
+//<script src="/include-scripts/fileupload.js"></script>

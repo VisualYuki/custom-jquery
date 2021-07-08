@@ -1,0 +1,13 @@
+.js-toggle {
+	&-trigger {
+		&.active {
+			& ~ .js-toggle-target {
+				display: block;
+			}
+		}
+	}
+
+	&-target {
+		display: none;
+	}
+}

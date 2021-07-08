@@ -1,0 +1,28 @@
+.default-btn {
+	.flex(center,center);
+	width: max-content;
+
+	white-space: nowrap;
+	text-align: center;
+
+	border-radius: 3px;
+
+	cursor: pointer;
+	.tran-fast;
+
+	&:hover {
+		background: transparent;
+	}
+
+	&__icon {
+		margin-right: 15px;
+	}
+
+	&_disable {
+		pointer-events: none;
+	}
+
+	&_full-width {
+		width: 100%;
+	}
+}

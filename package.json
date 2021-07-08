@@ -1,0 +1,80 @@
+{
+	"devDependencies": {
+		"@types/jest": "^26.0.23",
+		"@types/jquery": "^3.5.5",
+		"@types/node": "^15.12.4",
+		"build": "^0.1.4",
+		"clean-webpack-plugin": "*",
+		"copy-webpack-plugin": "^8.1.1",
+		"cross-env": "^7.0.3",
+		"css-loader": "^5.2.4",
+		"eslint": "^7.28.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-config-typescript": "^3.0.0",
+		"eslint-import-resolver-typescript": "^2.4.0",
+		"eslint-plugin-import": "^2.23.4",
+		"eslint-plugin-prettier": "^3.4.0",
+		"html-webpack-plugin": "^4.5.2",
+		"husky": "^6.0.0",
+		"jest": "^27.0.4",
+		"jsdom": "^16.6.0",
+		"less-loader": "^9.1.0",
+		"less-plugin-glob": "^3.0.0",
+		"lint-staged": "^11.0.0",
+		"mini-css-extract-plugin": "^1.6.0",
+		"npm": "^7.11.2",
+		"pug": "^2.0.4",
+		"pug-loader": "^2.4.0",
+		"run": "^1.4.0",
+		"style-loader": "^2.0.0",
+		"stylelint-config-rational-order": "^0.1.2",
+		"stylelint-config-recess-order": "^2.4.0",
+		"stylelint-config-recommended": "^5.0.0",
+		"stylelint-config-standard": "^22.0.0",
+		"ts-jest": "^27.0.3",
+		"ts-loader": "^9.2.3",
+		"ts-node": "^10.0.0",
+		"typescript": "^4.3.2",
+		"webpack": "^5.36.2",
+		"webpack-bundle-analyzer": "^4.4.1",
+		"webpack-cli": "^4.6.0",
+		"webpack-dev-server": "^4.0.0-beta.0"
+	},
+	"name": "ts calculator",
+	"description": "typescript calculator (MVC)",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev:serve": "cross-env NODE_ENV=development webpack serve",
+		"dev": "cross-env NODE_ENV=development webpack",
+		"build": "cross-env NODE_ENV=production webpack",
+		"eslint": "eslint ./src/js",
+		"eslint:fix": "eslint ./src/js --fix",
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/VisualYuki/ts-calculator.git"
+	},
+	"author": "Den",
+	"license": "ISC",
+	"homepage": "",
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run build"
+		}
+	},
+	"lint-staged": {
+		"*.js": "npm run eslint:fix"
+	},
+	"dependencies": {
+		"-": "^0.0.1",
+		"@babel/plugin-transform-modules-commonjs": "^7.14.5",
+		"@typescript-eslint/eslint-plugin": "^4.26.1",
+		"@typescript-eslint/parser": "^4.26.1",
+		"jquery": "^3.6.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2"
+	}
+}

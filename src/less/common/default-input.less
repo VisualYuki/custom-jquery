@@ -1,0 +1,179 @@
+.default-input {
+	margin-bottom: 16px;
+
+	// Скрыть заполнитель при фокусу поля ввода
+	&_hide-focus-placeholder {
+		.default-input__input:focus ~ .default-input__placeholder,
+		.default-input__input:valid ~ .default-input__placeholder,
+		.default-input__input[value] ~ .default-input__placeholder {
+			display: none;
+		}
+	}
+
+	// Переместить заполнитель над полем ввода.
+	&_title {
+		.default-input {
+			&__placeholder {
+				display: none;
+			}
+
+			&__input {
+				padding: 12px;
+			}
+
+			&__title {
+				margin-bottom: 4px;
+
+				font-size: 14px;
+			}
+		}
+	}
+
+	.default-input__input {
+		width: 100%;
+		padding: 12px;
+
+		color: black;
+
+		border: 1px solid black;
+		border-radius: 2px;
+
+		&:focus {
+			border-color: black;
+		}
+
+		&::placeholder {
+			//.font-size(18,14);
+			color: gray;
+		}
+
+		&:focus ~ .default-input__placeholder,
+		&:valid ~ .default-input__placeholder,
+		&[value] ~ .default-input__placeholder {
+			top: 0;
+			left: 10px;
+			z-index: 0;
+
+			height: max-content;
+			padding: 3px;
+
+			font-size: 11px;
+			line-height: normal;
+			text-indent: 0;
+
+			transform: none;
+		}
+	}
+
+	&__placeholder {
+		position: absolute;
+		top: 50%;
+		left: 15px;
+
+		//width: 100%;
+		//height: 100%;
+
+		color: gray;
+		font-size: 14px;
+		//line-height: 16px;
+
+		transform: translateY(-50%);
+
+		.tran-fast;
+		pointer-events: none;
+	}
+
+	&_textarea {
+		.default-input__placeholder {
+			top: 26px;
+		}
+
+		textarea {
+			height: 112px;
+		}
+	}
+
+	&.must-input {
+	}
+
+	&__icon {
+		position: absolute;
+		top: 50%;
+		right: 16px;
+
+		transform: translateY(-50%);
+	}
+
+	&__error-text {
+		display: none;
+		padding-top: 3px;
+
+		color: red;
+		font-size: 12px;
+
+		text-indent: 3px;
+	}
+
+	&__input-wrap {
+	}
+
+	&_has-error {
+		.default-input {
+			&__input {
+				border: 1px solid red;
+			}
+
+			&__error-text {
+				display: block;
+			}
+		}
+	}
+
+	&_has-success {
+		.default-input {
+			&__input {
+				border: 1px solid green;
+			}
+		}
+	}
+
+	&_password {
+		.default-input {
+			&__icon {
+				cursor: pointer;
+
+				&:hover {
+					svg * {
+						fill: blue;
+					}
+				}
+			}
+
+			&__icon.active {
+				.eye-icon {
+					display: block;
+				}
+
+				.noeye-icon {
+					display: none;
+				}
+			}
+
+			&__icon:not(.active) {
+				.eye-icon {
+					display: none;
+				}
+
+				.noeye-icon {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+//.default-input.must-input
+//   .default-input__input-wrap
+//      input.default-input__input(type="text" name="phone" id="input" required="")
+//      label.default-input__placeholder() Номер телефона
+//   p.default-input__error-text Ошибка ввода. Введите 11 цифр для телефона.

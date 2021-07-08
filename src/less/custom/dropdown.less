@@ -1,0 +1,87 @@
+// при наведении на триггер появляется нужный блок
+.hover-dropdown {
+	.tran-fast;
+
+	&:hover .hover-dropdown__target {
+		display: block !important;
+	}
+
+	&__trigger {
+		cursor: pointer;
+	}
+
+	&__target {
+		position: absolute;
+		top: 100%;
+		right: 50%;
+
+		display: none !important;
+
+		background: white;
+
+		transform: translateX(50%);
+		.tran-fast;
+	}
+}
+
+// выпадающий список с опциями
+.dropdown-select {
+	&_active &__target {
+		.z-index-1;
+		opacity: 1;
+		.tran-mid;
+	}
+
+	&_active {
+		.z-index-3;
+	}
+
+	&__trigger {
+		.flex(flex-start,center);
+	}
+
+	&__target {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		.z-index--2;
+
+		width: 100%;
+
+		background: white;
+		border: 1px solid #e2e2e2;
+		border-top: none;
+		border-radius: 2px;
+		opacity: 0;
+		.tran-mid;
+	}
+
+	&__items {
+		padding-bottom: 10px;
+	}
+
+	&__item {
+		&-link {
+			padding: 8px 23px;
+
+			color: #000000;
+			font-size: 14px;
+			line-height: 16px;
+
+			&:hover {
+				background: #f1f1f1;
+			}
+		}
+	}
+}
+
+//.dropdown-select.dropdown-select_catalog.triangle-rotate_js-click
+//   .dropdown-select__trigger
+//      img.dropdown-select__icon(src="/dist/svg/time.svg" alt="")
+//      p.dropdown-select__trigger-text Измерительная техника
+//      img.dropdown-select__triangle.triangle-rotate__triangle(src="/dist/svg/small-down-arrow_red.svg" alt="")
+//   .dropdown-select__target
+//      ul.dropdown-select__items
+//         -for(let i = 0; i < 9; i++)
+//            li.dropdown-select__item
+//               a.dropdown-select__item-link(href="#") Комплектующие для измерителей

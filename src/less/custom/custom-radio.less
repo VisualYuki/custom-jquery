@@ -1,0 +1,91 @@
+.custom-radio {
+	@default: gray;
+	@primary: black;
+
+	position: relative;
+
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: flex-start;
+
+	cursor: pointer;
+
+	&__input {
+		display: none;
+	}
+
+	&__design {
+		position: relative;
+
+		width: 16px;
+		height: 16px;
+		margin-right: 8px;
+
+		border: 1px solid @default;
+		border-radius: 100%;
+
+		&:before,
+		&:after {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+
+			transform: translateX(-50%) translateY(-50%);
+
+			transition: all 0.5s;
+
+			content: "";
+		}
+
+		&:before {
+			width: 5px;
+			height: 5px;
+
+			background: transparent;
+			border-radius: 50%;
+		}
+
+		&:after {
+			width: 8px;
+			height: 8px;
+
+			background-color: @primary;
+			border-radius: 50%;
+
+			opacity: 0;
+		}
+	}
+
+	&__input:checked + &__design:after {
+		width: 13px;
+		height: 13px;
+
+		opacity: 1;
+	}
+
+	&__input:checked + &__design:before {
+		animation: customRadioPulse 1s cubic-bezier(0.15, 0.8, 0.5, 1);
+	}
+
+	&__input:checked + &__design {
+		border-color: @primary;
+	}
+
+	&__text {
+	}
+
+	@keyframes customRadioPulse {
+		0% {
+			box-shadow: 0 0 0 0 rgba(black);
+		}
+
+		100% {
+			box-shadow: 0 0 0 10px rgba(242, 242, 242, 0);
+		}
+	}
+}
+
+//label.select-gender__item-radio.custom-radio.mr-8
+//   input.custom-radio__input(type="radio" name="gender")
+//   .custom-radio__design

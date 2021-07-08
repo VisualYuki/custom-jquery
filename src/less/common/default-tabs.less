@@ -1,0 +1,69 @@
+.default-tabs {
+	overflow: hidden;
+
+	&__trigger-items {
+		.flex(flex-start,center);
+
+		//&:not(&_row) {
+		//	.mobile({
+		//      flex-direction: column;
+		//      align-items: stretch;
+		//      margin-bottom: 5px;
+		//   });
+		//}
+
+		//&_row {
+		//	.default-tabs__trigger-item {
+		//		padding: 10px 20px;
+		//	}
+		//}
+	}
+
+	&__trigger-item {
+		cursor: pointer;
+
+		.mobile({
+			margin-right: 0;
+		});
+
+		&:not(&_active):hover {
+			color: yellow;
+		}
+
+		&_active {
+			font-weight: 600;
+
+			pointer-events: none;
+		}
+	}
+
+	&__target-items {
+	}
+
+	&__target-item {
+		&:not(.default-tabs__target-item_active) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			.z-index--2;
+
+			display: block;
+			width: 100%;
+
+			opacity: 0;
+		}
+
+		&_active {
+			display: block;
+		}
+	}
+}
+// нужно проставить id для .default-tabs__trigger-item
+//ul.default-tabs__trigger-items
+//	li.default-tabs__trigger-item.default-tabs__trigger-item_active(data-index="1") Лицензия
+//	li.default-tabs__trigger-item(data-index="2") Сертификаты
+//	li.default-tabs__trigger-item(data-index="3") Награды
+//ul.default-tabs__target-items
+//	li.default-tabs__target-item.default-tabs__target-item_active 1
+//	li.default-tabs__target-item 2
+//	li.default-tabs__target-item 3

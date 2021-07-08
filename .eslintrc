@@ -1,0 +1,51 @@
+{
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true
+	},
+	//"parser": "@typescript-eslint/parser",
+	//"plugins": ["@typescript-eslint"],
+	//"settings": {
+	//	"import/parsers": {
+	//		"@typescript-eslint/parser": [".ts", ".tsx"]
+	//	}
+	//},
+	"extends": [
+		"eslint:recommended",
+		"airbnb/base",
+		"typescript"
+		//"typescript/prettier"
+		//"eslint-plugin-import",
+		//"import"
+	],
+	"rules": {
+		"no-tabs": "off",
+		"indent": "off",
+		"spaced-comment": "off",
+		"max-len": ["error", 150],
+		"quotes": ["off", "single"],
+		"no-console": "off",
+		"no-plusplus": "off",
+		"class-methods-use-this": "off",
+		"no-useless-constructor": "off",
+		//"no-explicit-any": "off"
+		"import/no-unresolved": "off",
+		"typescript-eslint/ban-ts-comment": "off"
+	}
+	//"plugins":
+	//"extends": "eslint-plugin-import"
+
+	//"plugins": ["import"]
+	//"overrides": [
+	//	{
+	//		"files": ["src/**/*.js"],
+	//		"extends": ["standard", "eslint:recommended"],
+	//		"rules": {
+	//			"semi": ["error", "never"],
+	//			"quotes": ["error", "backtick"]
+	//		}
+	//	}
+	//]
+}

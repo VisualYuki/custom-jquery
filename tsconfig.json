@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "ES2020",
+		"outDir": "out",
+		"sourceMap": true
+
+		//"strictPropertyInitialization": true
+		//"strictNullChecks": true
+	},
+	//"exclude": ["node_modules", "**/*.test.ts"],
+	//"files": ["./src/js/index.ts", "./src/js/jquery.ts"],
+	//"files": ["/src/js/index"],
+	"typeAcquisition": {
+		"include": ["jquery"]
+	}
+}

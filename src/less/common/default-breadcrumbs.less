@@ -1,0 +1,50 @@
+.default-breadcrumbs {
+	padding: 32px 0 24px;
+
+	.site-mobile({
+		padding: 12px 0;
+	});
+
+	&__items {
+		.flex(flex-start, center);
+		flex-wrap: wrap;
+
+		._425({
+			padding: 10px 0;
+		});
+	}
+
+	&__item {
+		margin-bottom: 10px;
+
+		white-space: nowrap;
+
+		&:last-child {
+			color: black;
+
+			pointer-events: none;
+		}
+
+		&:not(:last-child) {
+			margin-right: 23px;
+
+			color: black;
+
+			&:hover {
+				color: blue;
+			}
+
+			&:after {
+				position: absolute;
+				top: 50%;
+				right: -17px;
+
+				color: black;
+
+				transform: translateY(-50%);
+
+				content: ">";
+			}
+		}
+	}
+}

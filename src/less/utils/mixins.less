@@ -1,0 +1,93 @@
+.flex(@justify-content: left; @align-item: center; @flex-direction: row) {
+	display: flex;
+	flex-direction: @flex-direction;
+	align-items: @align-item;
+	justify-content: @justify-content;
+}
+
+.font-size(@Fmax; @Fmin; @Vmax: 1300; @Vmin: 320) {
+	@media (min-width: @Vmax * 1px) {
+		font-size: @Fmax * 1px;
+	}
+
+	@media (max-width: @Vmin * 1px) {
+		font-size: @Fmin * 1px;
+	}
+
+	@media (min-width: @Vmin * 1px) and (max-width: @Vmax * 1px) {
+		@k: (@Fmax - @Fmin)/ (@Vmax - @Vmin);
+		@b: @Fmin - (@k * @Vmin);
+		@b1: @b * 1px;
+
+		font-size: calc(@k*100vw + @b1);
+	}
+}
+
+.grid(@columnCount,@gap: 0) {
+	display: grid;
+	grid-gap: @gap * 1px;
+	grid-template-columns: repeat(@columnCount, minmax(0, auto));
+}
+
+.padding(@Direction; @Pmax; @Pmin; @Vmax: 1300; @Vmin: 320) {
+	@media (min-width: @Vmax * 1px) {
+		padding-@{Direction}: @Pmax * 1px;
+	}
+
+	// привет
+	@media (min-width: @Vmin * 1px) and (max-width: @Vmax * 1px) {
+		@k: (@Pmax - @Pmin)/ (@Vmax - @Vmin);
+		@b: @Pmin - (@k * @Vmin);
+		@b1: @b * 1px;
+
+		padding-@{Direction}: calc(@k*100vw + @b1);
+	}
+}
+
+.padding-2( @P1max; @P1min;  @P2max; @P2min; @Vmax: 1300; @Vmin: 320) {
+	@media (min-width: @Vmax * 1px) {
+		padding-top: @P1max * 1px;
+		padding-bottom: @P1max * 1px;
+	}
+
+	@media (min-width: @Vmin * 1px) and (max-width: @Vmax * 1px) {
+		@k: (@P1max - @P1min)/ (@Vmax - @Vmin);
+		@b: @P1min - (@k * @Vmin);
+		@b1: @b * 1px;
+
+		padding-top: calc(@k*100vw + @b1);
+		padding-bottom: calc(@k*100vw + @b1);
+	}
+
+	@media (min-width: @Vmax * 1px) {
+		padding-right: @P2max * 1px;
+		padding-left: @P2max * 1px;
+	}
+
+	@media (min-width: @Vmin * 1px) and (max-width: @Vmax * 1px) {
+		@k: (@P2max - @P2min)/ (@Vmax - @Vmin);
+		@b: @P2min - (@k * @Vmin);
+		@b1: @b * 1px;
+
+		padding-right: calc(@k*100vw + @b1);
+		padding-left: calc(@k*100vw + @b1);
+	}
+}
+
+.margin(@Direction; @Mmax; @Mmin; @Vmax: 1300; @Vmin: 320) {
+	@media (min-width: @Vmax * 1px) {
+		margin-@{Direction}: @Mmax * 1px;
+	}
+
+	@media (max-width: @Vmin * 1px) {
+		margin-@{Direction}: @Mmin * 1px;
+	}
+
+	@media (min-width: @Vmin * 1px) and (max-width: @Vmax * 1px) {
+		@k: (@Mmax - @Mmin)/ (@Vmax - @Vmin);
+		@b: @Mmin - (@k * @Vmin);
+		@b1: @b * 1px;
+
+		margin-@{Direction}: calc(@k*100vw + @b1);
+	}
+}

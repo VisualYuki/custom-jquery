@@ -1,0 +1,48 @@
+.custon-counter {
+	.flex(flex-start,stretch);
+	width: 93px;
+	height: 25px;
+
+	overflow: hidden;
+
+	border: 1px solid #7c7c7c;
+	border-radius: 2px;
+
+	&__arrow {
+		user-select: none;
+	}
+
+	&__left-arrow,
+	&__right-arrow {
+		.flex(center,center);
+		width: 30px;
+		height: 100%;
+
+		color: #ffffff;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 14px;
+		text-align: center;
+
+		background: #7c7c7c;
+		cursor: pointer;
+	}
+
+	&__left-arrow {
+		left: 0;
+	}
+
+	&__right-arrow {
+		right: 0;
+	}
+
+	&__input {
+		width: 31px;
+		height: 100%;
+
+		color: #000000;
+		font-size: 12px;
+		line-height: 25px;
+		text-align: center;
+	}
+}
