@@ -9,6 +9,7 @@ declare global {
 }
 
 window.$ = $;
+let i = 12;
 
 //$(".div-3").append("afterbegin", [document.createElement("div"), document.createElement("div")]);
 
