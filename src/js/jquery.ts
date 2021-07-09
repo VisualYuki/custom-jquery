@@ -1,33 +1,35 @@
 /**
- * JQ class is the most main class for jquery clone plugin, containing all logic: methods, props, ...
+ * The main jQuery class
  */
 export class JQ {
+	/**
+	 * An array of HTMLElements for next use by methods in the chain (for chain of responsibility (pattern))
+	 */
 	private $elItems: HTMLElement[] = [];
 
 	/**
-	 * Get count of inner el items
+	 * Get the count of `$elItems`
 	 */
-	get length() {
+	get length(): number {
 		return this.$elItems.length;
 	}
 
 	/**
-	 * Get array of inner el items
+	 * Get the array of `$elItems`. it's needed to get an array element by index
+	 * @example $("p").items[0]
 	 */
 	get items(): HTMLElement[] {
 		return this.$elItems;
 	}
 
 	/**
-	 * @constructor init selector or element to JQ class instance
+	 * Create `$elItems` by the `selector`
 	 */
-	constructor(selector: string | HTMLElement) {
+	constructor(selector: string) {
 		if (typeof selector === "string") {
 			document.querySelectorAll<HTMLElement>(selector).forEach((el: HTMLElement, index) => {
 				this.$elItems.push(el);
 			});
-		} else if (selector.nodeType === Node.ELEMENT_NODE) {
-			this.$elItems.push(selector);
 		} else {
 			throw new SyntaxError("Selector isn't string or node element");
 		}
@@ -453,24 +455,30 @@ export class JQ {
 
 	append(position: InsertPosition, element: JQ | HTMLElement | HTMLElement[]): this {
 		if (typeof element === "string") {
-			this.helpForEach((el, index) => {
-				el.insertAdjacentHTML(position, element);
+			this.helpForEach(($el, index) => {
+				$el.insertAdjacentHTML(position, element);
 			});
 		} else if (Array.isArray(element)) {
 			for (let $el of element) {
-				//$el.insertAdjacentHTML(position, element.outerHTML)
+				this.helpForEach((el, index) => {
+					el.insertAdjacentHTML(position, $el.outerHTML);
+				});
 			}
 		} else if (element instanceof JQ) {
+			this.helpForEach(($targetEl, index) => {
+				for (let $triggerEl of element.items) {
+					$targetEl.insertAdjacentHTML(position, $triggerEl.outerHTML);
+				}
+			});
 		} else if (element instanceof HTMLElement) {
-			this.helpForEach((el, index) => {
-				el.insertAdjacentHTML(position, element.outerHTML);
+			this.helpForEach(($el, index) => {
+				$el.insertAdjacentHTML(position, element.outerHTML);
 			});
 		}
 
 		return this;
 	}
 
-	//! добавить append
 	//! ajax
 
 	//! добавить click()
@@ -493,9 +501,9 @@ export class JQ {
  */
 
 //! добавить перегрузку: поиск без this
-export function $(selector: string | HTMLElement) {
+export function $(selector: string) {
 	//let i = ;
 	return new JQ(selector);
 }
 
-//let i: JQ = new JQ("input");
+$.ajax = function () {};

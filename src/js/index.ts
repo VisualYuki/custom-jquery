@@ -10,6 +10,10 @@ declare global {
 
 window.$ = $;
 
+//$(".div-3").append("afterbegin", [document.createElement("div"), document.createElement("div")]);
+
+//$(".div-3").append("afterbegin", $(".div-3"));
+
 //$(".text").slideToggle(5000);
 //console.log($(".text").css({ borderTop: "1px solid red" }));
 //console.log($(".outer1212").find(".inner"));
