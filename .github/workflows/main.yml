@@ -19,7 +19,7 @@ jobs:
     steps:
 
       # Runs a single command using the runners shell
-      
+      - uses: actions/checkout@v2.1.0
       - name: deploy
         run: |
           cd ..
