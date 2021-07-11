@@ -25,6 +25,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: deploy
-        run: npm run build
+        run: |
+          npm i
+          npm run build
 
 
