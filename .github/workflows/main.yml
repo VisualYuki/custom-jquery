@@ -19,8 +19,10 @@ jobs:
     steps:
 
       # Runs a single command using the runners shell
+      
       - name: deploy
         run: |
+          cd ..
           npm install
           npm run build
 
