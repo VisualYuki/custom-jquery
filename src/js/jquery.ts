@@ -25,11 +25,13 @@ export class JQ {
 	/**
 	 * Create `$elItems` by the `selector`
 	 */
-	constructor(selector: string) {
-		if (typeof selector === "string") {
-			document.querySelectorAll<HTMLElement>(selector).forEach((el: HTMLElement, index) => {
+	constructor(selectorOrElement: string | HTMLElement) {
+		if (typeof selectorOrElement === 'string') {
+			document.querySelectorAll<HTMLElement>(selectorOrElement).forEach((el: HTMLElement, index) => {
 				this.$elItems.push(el);
 			});
+		} else if (selectorOrElement instanceof HTMLElement) {
+			this.$elItems.push(selectorOrElement);
 		} else {
 			throw new SyntaxError("Selector isn't string or node element");
 		}
@@ -38,7 +40,7 @@ export class JQ {
 	}
 
 	/**
-	 * The mutual function for addClass & removeClass
+	 * A main method for working with HTMLElement classes
 	 */
 	private operateClassEventLabel(eventLabel: string, classes: string): this {
 		let splitClasses: string[] = this.getSplitClassess(classes);
@@ -60,32 +62,28 @@ export class JQ {
 	}
 
 	/**
-	 * Add classes from the inner node elements
-	 * @returns finished node elements
+	 * Add classes for `$elItems`
 	 */
 	addClass(classes: string): this {
-		return this.operateClassEventLabel("add", classes);
+		return this.operateClassEventLabel('add', classes);
 	}
 
 	/**
-	 * Remove classes from the inner node elements
-	 * @returns finished node elements
+	 * Remove classes for `$elItems`
 	 */
 	removeClass(classes: string): this {
-		return this.operateClassEventLabel("remove", classes);
+		return this.operateClassEventLabel('remove', classes);
 	}
 
 	/**
-	 * Toggle classes from the inner node elements
-	 * @returns finished node elements
+	 * Toggle classes for `$elItems`
 	 */
 	toggleClass(classes: string): this {
-		return this.operateClassEventLabel("toggle", classes);
+		return this.operateClassEventLabel('toggle', classes);
 	}
 
 	/**
-	 *
-	 * @returns Finished node elements
+	 * If each of the `$elItems` has class(es) then return true else return false
 	 */
 	hasClass(classes: string): boolean {
 		let splitClasses: string[] = this.getSplitClassess(classes);
@@ -103,7 +101,10 @@ export class JQ {
 		return hasClass;
 	}
 
-	each(callBackFunction: Function): this {
+	/**
+	 * Set callback function for each `$elItems`
+	 */
+	each(callBackFunction: (el: HTMLElement, index: number) => void): this {
 		this.$elItems.forEach((el, index) => {
 			callBackFunction(el, index);
 		});
@@ -111,6 +112,10 @@ export class JQ {
 		return this;
 	}
 
+	/**
+	 * Set eventHandler for each `$elItems`
+	 * @param currentEvent native js event name
+	 */
 	on(currentEvent: string, callback: EventListener): this {
 		this.$elItems.forEach((el, index) => {
 			el.addEventListener(currentEvent, callback);
@@ -124,37 +129,44 @@ export class JQ {
 	}
 
 	/**
-	 * The mutual function for attribute actions
+	 * The main function for attribute actions
 	 */
-	private operateAttribute(eventLabel: string, attr: string, attrValue?: string, isData: boolean = false): this | string | undefined {
+	private operateAttribute(
+		eventLabel: string,
+		attr: string,
+		attrValue?: string | number,
+		isData: boolean = false
+	): this | string | undefined {
 		const finalAttr: string = isData ? `data-${attr}` : attr;
-		const finalAttrValueParam: string = attrValue !== undefined ? `, '${attrValue}'` : "";
+		const finalAttrValueParam: string = attrValue !== undefined ? `, '${attrValue}'` : '';
 
-		if (eventLabel === "set" || eventLabel === "remove") {
+		if (eventLabel === 'set' || eventLabel === 'remove') {
 			this.helpForEach((el, _index) => {
 				eval(`el.${eventLabel}Attribute('${finalAttr}'${finalAttrValueParam})`);
 			});
 			return this;
-		} else if (eventLabel === "get") {
+		} else if (eventLabel === 'get') {
 			return eval(`this.getFirstEl()?.${eventLabel}Attribute('${finalAttr}'${finalAttrValueParam})`);
 		} else {
-			console.log("error in operateAttribute");
+			console.log('error in operateAttribute');
 		}
 	}
 
 	/**
-	 * Get/set data attribute
+	 * Get/set data attribute.
+	 * @description If there are more than one `$elItems`, then return get for first element
 	 */
 	data(dataName: string, dataValueName?: string): this | string | undefined {
-		const eventLabel: string = dataValueName === undefined ? "get" : "set";
+		const eventLabel: string = dataValueName === undefined ? 'get' : 'set';
 		return this.operateAttribute(eventLabel, dataName, dataValueName, true);
 	}
 
 	/**
 	 * Get/set attribute
+	 * @description If there are more than one `$elItems`, then return get for first element
 	 */
-	attr(attrName: string, dataValueName?: string): this | string | undefined {
-		const eventLabel: string = dataValueName === undefined ? "get" : "set";
+	attr(attrName: string, dataValueName?: string | number): this | string | undefined {
+		const eventLabel: string = dataValueName === undefined ? 'get' : 'set';
 		return this.operateAttribute(eventLabel, attrName, dataValueName);
 	}
 
@@ -162,18 +174,18 @@ export class JQ {
 	 * Remove data attribute
 	 */
 	removeData(dataName: string, dataValueName?: string): this | string | undefined {
-		return this.operateAttribute("remove", dataName, dataValueName, true);
+		return this.operateAttribute('remove', dataName, dataValueName, true);
 	}
 
 	/**
 	 * Remove attribute
 	 */
 	removeAttr(attrName: string, dataValueName?: string): this | string | undefined {
-		return this.operateAttribute("remove", attrName, dataValueName);
+		return this.operateAttribute('remove', attrName, dataValueName);
 	}
 
 	/**
-	 * set/ get innerHTML for first element
+	 * set for `$elItems` or get innerHTML for first element of `$elItems`
 	 */
 	html(htmlString?: string): this | string {
 		if (htmlString) {
@@ -212,7 +224,7 @@ export class JQ {
 	}
 
 	private setPx(value: number): string {
-		return value + "px";
+		return value + 'px';
 	}
 
 	/**
@@ -224,7 +236,7 @@ export class JQ {
 		const elHeight: number = +el.clientHeight;
 		const elHeightPart: number = (elHeight * intervalTime) / duration;
 		el.style.maxHeight = this.setPx(elHeight);
-		el.style.overflow = "hidden";
+		el.style.overflow = 'hidden';
 
 		const intervalId = setInterval(() => {
 			const elHeight = this.removePx(el.style.maxHeight) - elHeightPart;
@@ -233,15 +245,15 @@ export class JQ {
 
 			if (totalTime > duration) {
 				clearInterval(intervalId);
-				el.style.display = "none";
-				el.style.removeProperty("overflow");
-				el.style.removeProperty("max-height");
+				el.style.display = 'none';
+				el.style.removeProperty('overflow');
+				el.style.removeProperty('max-height');
 			}
 		}, intervalTime);
 	}
 
 	hide(duration?: number): this {
-		if (typeof duration === "undefined") this.operateHideOrShow("none");
+		if (typeof duration === 'undefined') this.operateHideOrShow('none');
 		else {
 			this.helpForEach((el: HTMLElement, _index: Number) => {
 				this.hideEl(el, duration);
@@ -255,16 +267,16 @@ export class JQ {
 	 * help function for one element in show()
 	 */
 	private showEl(el: HTMLElement, duration: number) {
-		el.style.overflow = "hidden";
-		el.style.display = "block";
-		el.style.opacity = "0";
+		el.style.overflow = 'hidden';
+		el.style.display = 'block';
+		el.style.opacity = '0';
 		let totalTime: number = 0;
 		const intervalTime: number = 10;
 		const elHeight: number = this.removePx(getComputedStyle(el).height);
 		const elHeightPart: number = (elHeight * intervalTime) / duration;
 
-		el.style.height = "0";
-		el.style.opacity = "1";
+		el.style.height = '0';
+		el.style.opacity = '1';
 
 		const intervalId = setInterval(() => {
 			const nextElHeight = this.removePx(el.style.height) + elHeightPart;
@@ -273,17 +285,17 @@ export class JQ {
 
 			if (totalTime > duration) {
 				clearInterval(intervalId);
-				el.style.removeProperty("overflow");
-				el.style.removeProperty("opacity");
-				el.style.removeProperty("height");
-				el.style.display = "block";
+				el.style.removeProperty('overflow');
+				el.style.removeProperty('opacity');
+				el.style.removeProperty('height');
+				el.style.display = 'block';
 			}
 		}, intervalTime);
 	}
 
-	show(duration?: number, display: string = "block"): this {
-		if (typeof duration === "undefined") {
-			this.operateHideOrShow("block");
+	show(duration?: number, display: string = 'block'): this {
+		if (typeof duration === 'undefined') {
+			this.operateHideOrShow('block');
 		} else {
 			this.helpForEach((el: HTMLElement, _index: Number) => {
 				this.showEl(el, duration);
@@ -294,17 +306,17 @@ export class JQ {
 	}
 
 	slideToggle(duration?: number): this {
-		if (typeof duration === "undefined") {
+		if (typeof duration === 'undefined') {
 			this.helpForEach((el: HTMLElement, index) => {
-				if (getComputedStyle(el).display === "none") {
-					el.style.display = "block";
+				if (getComputedStyle(el).display === 'none') {
+					el.style.display = 'block';
 				} else {
-					el.style.display = "none";
+					el.style.display = 'none';
 				}
 			});
 		} else {
 			this.helpForEach((el: HTMLElement, index) => {
-				if (getComputedStyle(el).display === "none") {
+				if (getComputedStyle(el).display === 'none') {
 					this.showEl(el, duration);
 				} else {
 					this.hideEl(el, duration);
@@ -334,11 +346,11 @@ export class JQ {
 	 * return a input value of first input in list
 	 * @param value a input value for set
 	 */
-	val(value: string): string | this {
+	val(value?: string): this | string | undefined {
 		if (value === undefined) {
-			return this.getFirstEl()?.getAttribute("value");
+			return this.getFirstEl()?.getAttribute('value');
 		} else {
-			this.getFirstEl()?.setAttribute("value", value);
+			this.getFirstEl()?.setAttribute('value', value);
 			return this;
 		}
 	}
@@ -349,7 +361,7 @@ export class JQ {
 	 * if cssPropNames is object, then set css prop values
 	 * @param object
 	 */
-	css(cssPropNames: string[] | { [propName: string]: string }): object | this {
+	css(cssPropNames: string[] | {[propName: string]: string}): object | this {
 		let $firstEl = this.getFirstEl();
 
 		if (Array.isArray(cssPropNames)) {
@@ -361,23 +373,23 @@ export class JQ {
 			}
 
 			return cssPropNameResult;
-		} else if (typeof cssPropNames === "object") {
-			if ($firstEl !== undefined) {
+		} else if (typeof cssPropNames === 'object') {
+			this.helpForEach(($el, index) => {
 				for (let cssPropName in cssPropNames) {
-					this.getFirstEl().style[cssPropName] = cssPropNames[cssPropName];
+					$el.style[cssPropName] = cssPropNames[cssPropName];
 				}
-			}
+			});
 
 			return this;
 		} else {
-			console.log("error in css()");
+			console.log('error in css()');
 		}
 
 		return this;
 	}
 
 	/**
-	 * find child selector for first element
+	 * Find child selector for first element of `$elItems`
 	 */
 	find(selector: string): this {
 		let resultArray: HTMLElement[] = [];
@@ -394,7 +406,7 @@ export class JQ {
 	}
 
 	/**
-	 * return closest element for first el of array
+	 * Return closest elements for first el of `$elItems`
 	 */
 	closest(selector: string): this {
 		let isFind = false;
@@ -409,7 +421,7 @@ export class JQ {
 				$parentEl = $parentEl.parentElement;
 			}
 
-			if ($parentEl.matches("html")) {
+			if ($parentEl.matches('html')) {
 				isFind = true;
 				return undefined;
 			}
@@ -439,12 +451,15 @@ export class JQ {
 		return resultArray;
 	}
 
+	/**
+	 * Return sibling elements for first el of `$elItems`
+	 */
 	siblings(selector?: string): this {
 		let siblings: HTMLElement[] = this.getSiblings();
 		if (selector === undefined) {
 			this.$elItems = siblings;
 			return this;
-		} else if (typeof selector === "string") {
+		} else if (typeof selector === 'string') {
 			this.$elItems = siblings.filter((sibling: HTMLElement) => {
 				return sibling.matches(selector);
 			});
@@ -453,8 +468,8 @@ export class JQ {
 		return this;
 	}
 
-	append(position: InsertPosition, element: JQ | HTMLElement | HTMLElement[]): this {
-		if (typeof element === "string") {
+	append(position: InsertPosition, element: string | JQ | HTMLElement | HTMLElement[]): this {
+		if (typeof element === 'string') {
 			this.helpForEach(($el, index) => {
 				$el.insertAdjacentHTML(position, element);
 			});
@@ -479,20 +494,23 @@ export class JQ {
 		return this;
 	}
 
-	//! ajax
+	/**
+	 * Trigger click event on `$elItems`
+	 */
+	click(): this {
+		let event = new Event('click');
+		this.helpForEach(($el, number) => {
+			$el.dispatchEvent(event);
+		});
 
-	//! добавить click()
-	//prop(prop: string): this {
-	//	return this;
-	//}
-
-	// добавить prop
+		return this;
+	}
 }
 
 /**
  * Init selector or element to JQ instance
  *
- * @param selector class selector or node element
+ * @param selectorOrElement class selector or node element
  * @returns return `JQ` class instance
  * @example
  * ``` $('body') or $('.element-class') ```
@@ -501,9 +519,24 @@ export class JQ {
  */
 
 //! добавить перегрузку: поиск без this
-export function $(selector: string) {
+export function $(selectorOrElement: string | HTMLElement) {
 	//let i = ;
-	return new JQ(selector);
+	return new JQ(selectorOrElement);
 }
 
-$.ajax = function () {};
+type ajaxMethod = 'POST' | 'GET';
+
+$.ajax = (options: {url: string; data?: object; method?: ajaxMethod; success?: Function; error?: Function}) => {
+	//let formData: FormData = new FormData();
+	//formData.append('id', '1');
+
+	fetch(options.url, {
+		method: options.method ? options.method : 'GET',
+		//body: formData,
+	})
+		.then((success) => {
+			return success.json();
+		})
+		.then((data) => options.success(data))
+		.catch((error) => options.error('1212'));
+};

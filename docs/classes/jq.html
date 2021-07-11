@@ -68,7 +68,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>JQ class is the most main class for jquery clone plugin, containing all logic: methods, props, ...</p>
+						<p>The main jQuery class</p>
 					</div>
 				</div>
 			</section>
@@ -109,6 +109,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="jq.html#addclass" class="tsd-kind-icon">add<wbr>Class</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="jq.html#append" class="tsd-kind-icon">append</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="jq.html#attr" class="tsd-kind-icon">attr</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="jq.html#click" class="tsd-kind-icon">click</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="jq.html#closest" class="tsd-kind-icon">closest</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="jq.html#css" class="tsd-kind-icon">css</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="jq.html#data" class="tsd-kind-icon">data</a></li>
@@ -149,19 +150,24 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new JQ<span class="tsd-signature-symbol">(</span>selector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
+						<li class="tsd-signature tsd-kind-icon">new JQ<span class="tsd-signature-symbol">(</span>selectorOrElement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L19">jquery.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L23">jquery.ts:23</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create <code>$elItems</code> by the <code>selector</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>selector: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></h5>
+									<h5>selectorOrElement: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></h4>
@@ -177,9 +183,14 @@
 					<div class="tsd-signature tsd-kind-icon">$el<wbr>Items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L5">jquery.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L8">jquery.ts:8</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An array of HTMLElements for next use by methods in the chain (for chain of responsibility (pattern))</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -194,13 +205,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L17">jquery.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L21">jquery.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get array of inner el items</p>
+									<p>Get the array of <code>$elItems</code>. it&#39;s needed to get an array element by index</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>$(&quot;p&quot;).items[0]</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
@@ -216,12 +232,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L10">jquery.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L13">jquery.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get count of inner el items</p>
+									<p>Get the count of <code>$elItems</code></p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -241,12 +257,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L64">jquery.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L67">jquery.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Add classes from the inner node elements</p>
+									<p>Add classes for <code>$elItems</code></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -256,7 +272,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></h4>
-							<p>finished node elements</p>
 						</li>
 					</ul>
 				</section>
@@ -264,13 +279,13 @@
 					<a name="append" class="tsd-anchor"></a>
 					<h3>append</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">append<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">InsertPosition</span>, element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
+						<li class="tsd-signature tsd-kind-icon">append<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">InsertPosition</span>, element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L454">jquery.ts:454</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L471">jquery.ts:471</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -279,7 +294,7 @@
 									<h5>position: <span class="tsd-signature-type">InsertPosition</span></h5>
 								</li>
 								<li>
-									<h5>element: <span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>element: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></h4>
@@ -290,19 +305,24 @@
 					<a name="attr" class="tsd-anchor"></a>
 					<h3>attr</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">attr<span class="tsd-signature-symbol">(</span>attrName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dataValueName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
+						<li class="tsd-signature tsd-kind-icon">attr<span class="tsd-signature-symbol">(</span>attrName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dataValueName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L154">jquery.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L168">jquery.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Get/set attribute</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>If there are more than one <code>$elItems</code>, then return get for first element</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -310,10 +330,32 @@
 									<h5>attrName: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> dataValueName: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> dataValueName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="click" class="tsd-anchor"></a>
+					<h3>click</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">click<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L500">jquery.ts:500</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Trigger click event on <code>$elItems</code></p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -327,12 +369,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L397">jquery.ts:397</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L411">jquery.ts:411</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>return closest element for first el of array</p>
+									<p>Return closest elements for first el of <code>$elItems</code></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -355,7 +397,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L350">jquery.ts:350</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L364">jquery.ts:364</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -382,13 +424,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L146">jquery.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L159">jquery.ts:159</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get/set data attribute</p>
+									<p>Get/set data attribute.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>If there are more than one <code>$elItems</code>, then return get for first element</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -407,19 +454,45 @@
 					<a name="each" class="tsd-anchor"></a>
 					<h3>each</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">each<span class="tsd-signature-symbol">(</span>callBackFunction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
+						<li class="tsd-signature tsd-kind-icon">each<span class="tsd-signature-symbol">(</span>callBackFunction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>el<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L104">jquery.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L107">jquery.ts:107</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set callback function for each <code>$elItems</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>callBackFunction: <span class="tsd-signature-type">Function</span></h5>
+									<h5>callBackFunction: <span class="tsd-signature-symbol">(</span>el<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>el<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>el: <span class="tsd-signature-type">HTMLElement</span></h5>
+														</li>
+														<li>
+															<h5>index: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></h4>
@@ -436,12 +509,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L380">jquery.ts:380</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L394">jquery.ts:394</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>find child selector for first element</p>
+									<p>Find child selector for first element of <code>$elItems</code></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -464,7 +537,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L319">jquery.ts:319</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L333">jquery.ts:333</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -492,7 +565,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L419">jquery.ts:419</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L433">jquery.ts:433</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -509,7 +582,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L56">jquery.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L60">jquery.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -537,9 +610,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L88">jquery.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L88">jquery.ts:88</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>If each of the <code>$elItems</code> has class(es) then return true else return false</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -547,7 +625,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>Finished node elements</p>
 						</li>
 					</ul>
 				</section>
@@ -561,7 +638,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L120">jquery.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L127">jquery.ts:127</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -611,7 +688,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L241">jquery.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L255">jquery.ts:255</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -634,7 +711,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L219">jquery.ts:219</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L233">jquery.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -665,12 +742,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L176">jquery.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L190">jquery.ts:190</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>set/ get innerHTML for first element</p>
+									<p>set for <code>$elItems</code> or get innerHTML for first element of <code>$elItems</code></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -693,13 +770,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L112">jquery.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L119">jquery.ts:119</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set eventHandler for each <code>$elItems</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>currentEvent: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>native js event name</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">EventListener</span></h5>
@@ -713,18 +798,18 @@
 					<a name="operateattribute" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> operate<wbr>Attribute</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">operate<wbr>Attribute<span class="tsd-signature-symbol">(</span>eventLabel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, attr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, attrValue<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, isData<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
+						<li class="tsd-signature tsd-kind-icon">operate<wbr>Attribute<span class="tsd-signature-symbol">(</span>eventLabel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, attr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, attrValue<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, isData<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L127">jquery.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L134">jquery.ts:134</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The mutual function for attribute actions</p>
+									<p>The main function for attribute actions</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -736,7 +821,7 @@
 									<h5>attr: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> attrValue: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> attrValue: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
 									<h5>isData: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
@@ -756,12 +841,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L41">jquery.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L45">jquery.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The mutual function for addClass &amp; removeClass</p>
+									<p>A main method for working with HTMLElement classes</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -787,7 +872,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L202">jquery.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L216">jquery.ts:216</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -810,7 +895,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L169">jquery.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L183">jquery.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -841,12 +926,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L72">jquery.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L74">jquery.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Remove classes from the inner node elements</p>
+									<p>Remove classes for <code>$elItems</code></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -856,7 +941,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></h4>
-							<p>finished node elements</p>
 						</li>
 					</ul>
 				</section>
@@ -870,7 +954,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L162">jquery.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L176">jquery.ts:176</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -901,7 +985,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L208">jquery.ts:208</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L222">jquery.ts:222</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -924,7 +1008,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L212">jquery.ts:212</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L226">jquery.ts:226</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -947,7 +1031,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L282">jquery.ts:282</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L296">jquery.ts:296</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -956,7 +1040,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> duration: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5>display: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;block&quot;</span></h5>
+									<h5>display: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;block&#x27;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></h4>
@@ -973,7 +1057,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L255">jquery.ts:255</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L269">jquery.ts:269</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1004,9 +1088,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L440">jquery.ts:440</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L457">jquery.ts:457</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return sibling elements for first el of <code>$elItems</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1027,7 +1116,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L294">jquery.ts:294</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L308">jquery.ts:308</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1050,7 +1139,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L191">jquery.ts:191</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L205">jquery.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1078,12 +1167,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L80">jquery.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L81">jquery.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Toggle classes from the inner node elements</p>
+									<p>Toggle classes for <code>$elItems</code></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1093,7 +1182,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></h4>
-							<p>finished node elements</p>
 						</li>
 					</ul>
 				</section>
@@ -1101,13 +1189,13 @@
 					<a name="val" class="tsd-anchor"></a>
 					<h3>val</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">val<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
+						<li class="tsd-signature tsd-kind-icon">val<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="jq.html" class="tsd-signature-type" data-tsd-kind="Class">JQ</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/b44a542/src/js/jquery.ts#L335">jquery.ts:335</a></li>
+									<li>Defined in <a href="https://github.com/VisualYuki/custom-jquery/blob/96cc429/src/js/jquery.ts#L349">jquery.ts:349</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1118,7 +1206,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> value: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>a input value for set</p>
 									</div>
@@ -1165,6 +1253,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="jq.html#attr" class="tsd-kind-icon">attr</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="jq.html#click" class="tsd-kind-icon">click</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="jq.html#closest" class="tsd-kind-icon">closest</a>

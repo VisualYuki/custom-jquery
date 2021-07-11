@@ -1,6 +1,6 @@
-import "@less/site-main.less";
+import '@less/site-main.less';
 
-import { $ } from "./jquery";
+import {$} from './jquery';
 
 declare global {
 	interface Window {
@@ -9,25 +9,19 @@ declare global {
 }
 
 window.$ = $;
-let i = 12;
 
-//$(".div-3").append("afterbegin", [document.createElement("div"), document.createElement("div")]);
-
-//$(".div-3").append("afterbegin", $(".div-3"));
-
-//$(".text").slideToggle(5000);
-//console.log($(".text").css({ borderTop: "1px solid red" }));
-//console.log($(".outer1212").find(".inner"));
-
-//console.log($(".inner").closest("body").attr("id", 12));
-//console.log($("div").items);
-//console.log($("input").siblings("p"));
-// @ts-ignore
-
-//console.log(i);
-
-//$(".xfgfg").
-//$(".test");
-//console.log($("p").text());
-//$("input").val("new-value");
-//$(".outer").append("afterbegin", (document.createElement("a").textContent = "sdf"));
+//$.ajax({
+//	url: 'http://jsonplaceholder.typicode.com/users1212',
+//	method: 'GET',
+//	//"data": {
+//	//	"userId": "1"
+//	//},
+//	success: (data: string) => {
+//		console.log('in success');
+//		console.log(data);
+//	},
+//	error: (data: string) => {
+//		console.log('in error');
+//		console.log(data);
+//	},
+//});

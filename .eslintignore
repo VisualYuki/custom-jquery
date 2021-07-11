@@ -3,4 +3,7 @@
 
 # Ignore built files
 dist
+frontend-dist
 .git
+node_modules
+temp

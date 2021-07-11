@@ -1,4 +1,8 @@
 {
 	"useEditorConfig": true,
-	"printWidth": 400
+	"printWidth": 120,
+	"singleQuote": true,
+	"bracketSpacing": false,
+	"arrowParens": "always",
+	"semi": true
 }
