@@ -28,5 +28,6 @@ jobs:
           npm install
           npm run doc
           npm run build
+          ls
 
 
