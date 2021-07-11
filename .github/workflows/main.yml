@@ -20,11 +20,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - uses: actions/checkout@v2.1.0
+      - uses: actions/setup-node@v1
       - name: deploy
         run: |
-          ls
-          cd ..
-          ls
           npm install
           npm run build
 
